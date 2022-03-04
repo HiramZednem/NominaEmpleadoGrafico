@@ -49,18 +49,12 @@ public class EmpleadoChofer extends EmpleadoPorComision {
 
     @Override
     public String toString() {
-        return /*"Empleado base chofer: "+ obtenerPrimerNombre() + " "+ obtenerApellidoPaterno() +
-                "\nNumero de seguro Social: "+obtenerNumeroSeguroSocial() +
-                "\nSueldo base mas viaticos: " + ( SalarioBase+ViaticosAndCombustible) +
-                "\nBiaticos: " + ViaticosAndCombustible+"%.2f"+
-                "\nTipo de gasolina: "+ getTipoGasolina();
-*/
-          //String.format ( "%.2fSueldo base mas viaticos: " ,( SalarioBase+ViaticosAndCombustible));
-                String.format ( "%s%s %s\n%s%s%s%.2f%s%.2f%s%s","Empleado base chofer: ", obtenerPrimerNombre() , obtenerApellidoPaterno() ,
-                "Numero de seguro Social: ",obtenerNumeroSeguroSocial(),
-                "\nSueldo base mas viaticos: ", ( SalarioBase+ViaticosAndCombustible),
-                "\nBiaticos: ", ViaticosAndCombustible+"%.2f",
-                "\nTipo de gasolina: ", getTipoGasolina());
+        return String.format("%s: %s %s\n%s: %s\n%s: %.2f\n%s: %.2f\n%s: %s",
+                "Empleado base chofer", obtenerPrimerNombre(),obtenerApellidoPaterno(), 
+                 "NSS",obtenerNumeroSeguroSocial(),
+                 "Sueldo base mas viaticos",( SalarioBase+ViaticosAndCombustible),
+                 "Biaticos",ViaticosAndCombustible,
+                 "Tipo de gasolina",TipoGasolina);
     }
     
    
