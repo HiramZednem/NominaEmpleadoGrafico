@@ -21,30 +21,17 @@ public class EmpleadoChofer extends EmpleadoPorComision {
 
    
     public void ViaticosyCombustible(Double RecorridoEnKm, Double ViaticosAndCombustible, String TipoGasolina){
-        /*Por cada 100 Km se le asigna el precio de 40 litros de gasolina (verificar si es
-            Magna, Premium o Diésel)
+        final double precioPorLitro = 0.4;
+        double viatico = (RecorridoEnKm < 100) ? 200 : (RecorridoEnKm * 4);
         
-
-        Magna $ 20.86 => $ 3,106.00
-        Premium $ 21.25 =>$ 3,164.00
-        Diésel $ 22.66 => $ 3,374.00
-        */
-        double gasolina=0;
-        
-        double viatico=RecorridoEnKm*4;
-        if (RecorridoEnKm <100)
-            viatico = 200;
-       if (TipoGasolina == "Magna"){
-          gasolina = (RecorridoEnKm *0.4)* 20.86;
-         
-       }else if(TipoGasolina == "Premium"){
-           gasolina = (RecorridoEnKm *0.4)*  21.25;
-       }else{//Diesel
-          gasolina = (RecorridoEnKm *0.4) *  22.66;
-       }
-      
+        double gasolina= (TipoGasolina ==     "Magna")   ?     ( ( RecorridoEnKm *precioPorLitro ) * 20.86 ):
+                                        (TipoGasolina == "Premium")   ?     ( ( RecorridoEnKm *precioPorLitro ) *  21.25 ):    
+                                                                                                        ( ( RecorridoEnKm *precioPorLitro ) *  22.66 );
+                 
+   
        double PrecioViatico = viatico+gasolina;
        setViaticosAndCombustible(PrecioViatico);           
+        
     }
 
     @Override
