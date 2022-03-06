@@ -8,8 +8,7 @@ public class EmpleadoChofer extends EmpleadoPorComision {
     private String TipoGasolina;
     private Double ViaticosAndCombustible;
 
-    public EmpleadoChofer(String primerNombre, String apellidoPaterno, String numeroSeguroSocial,
-            int SalarioBase, Double RecorridoEnKm,String TipoGasolina) {
+    public EmpleadoChofer(String primerNombre, String apellidoPaterno, String numeroSeguroSocial, int SalarioBase, Double RecorridoEnKm,String TipoGasolina) {
         super(primerNombre, apellidoPaterno, numeroSeguroSocial);
         
         this.RecorridoEnKm = RecorridoEnKm;
@@ -22,15 +21,17 @@ public class EmpleadoChofer extends EmpleadoPorComision {
    
     public void ViaticosyCombustible(Double RecorridoEnKm, Double ViaticosAndCombustible, String TipoGasolina){
         final double precioPorLitro = 0.4;
-        double viatico = (RecorridoEnKm < 100) ? 200 : (RecorridoEnKm * 4);
         
-        double gasolina= (TipoGasolina ==     "Magna")   ?     ( ( RecorridoEnKm *precioPorLitro ) * 20.86 ):
-                                        (TipoGasolina == "Premium")   ?     ( ( RecorridoEnKm *precioPorLitro ) *  21.25 ):    
-                                                                                                        ( ( RecorridoEnKm *precioPorLitro ) *  22.66 );
+        final double precioGasolina = (TipoGasolina ==     "Magna")   ? 20.86:
+                                                               (TipoGasolina == "Premium")   ? 21.25:
+                                                                                                                           22.66;
+                
+        double viatico = (RecorridoEnKm < 100) ? 200 : (RecorridoEnKm * 4);
+        double gasolina = ( (RecorridoEnKm *precioPorLitro ) * precioGasolina );
+                                        
                  
-   
-       double PrecioViatico = viatico+gasolina;
-       setViaticosAndCombustible(PrecioViatico);           
+       //double PrecioViatico = ;
+       setViaticosAndCombustible(viatico+gasolina);           
         
     }
 
